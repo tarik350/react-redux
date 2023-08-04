@@ -9,10 +9,12 @@ const reducerFn = (state = { counter: 0 }, action) => {
   if (action.type === "increment") {
     //write a logic to update the state
     return { counter: ++state.counter };
-  }
-
-  if (action.type === "decrement") {
+  } else if (action.type === "decrement") {
     return { counter: --state.counter };
+  } else if (action.type === "addTen") {
+    return { counter: state.counter + 10 };
+  } else if (action.type == "reduceTen") {
+    return { counter: state.counter - 10 };
   }
   return state;
 };
