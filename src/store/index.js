@@ -22,9 +22,20 @@ const counterSlice = createSlice({
   },
 });
 
-export const actions = counterSlice.actions;
+const nameSlice = createSlice({
+  name: "name",
+  initialState: { name: "example", email: "example@gmail.com" },
+  reducers: {
+    setNameAndEmail: (state, actions) => {
+      state.name = actions.payload.name;
+      state.email = actions.payload.email;
+    },
+  },
+});
+
+export const actions = nameSlice.actions;
 const store = configureStore({
-  reducer: counterSlice.reducer,
+  reducer: nameSlice.reducer,
 });
 
 export default store;

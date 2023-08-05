@@ -4,9 +4,12 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { actions } from "./store";
+import Form from "./compoents/Form";
 
 const App = () => {
-  const counter = useSelector((state) => state.counter);
+  const name = useSelector((state) => state.name);
+  const email = useSelector((state) => state.email);
+  // const counter = useSelector((state) => state.counter);
   const dispatch = useDispatch();
   const increment = () => {
     dispatch(actions.increment());
@@ -25,11 +28,20 @@ const App = () => {
   return (
     <div className="flex flex-col justify-center items-center  h-screen border-2  rounded-xl ">
       <div className="flex flex-col items-center border-2 px-80 py-20">
-        <h1 className="text-black text-4xl">Counter app</h1>
-        <div className="w-20 h-20 m-4 rounded-full border-4 border-black  flex justify-center items-center">
-          <h2 className="font-bold text-xl ">{counter}</h2>
+        <h1 className="text-black text-4xl">email and name</h1>
+        <div className="p-12 m-4 w-full flex-col border-2 border-black  flex justify-center items-center">
+          <div className="flex items-center">
+            <p>name: </p>
+            <h2 className="ml-2 font-bold text-xl ">{name}</h2>
+          </div>{" "}
+          <div className="flex items-center">
+            <p>email: </p>
+            <h2 className="ml-2 font-bold text-xl ">{email}</h2>
+          </div>
         </div>
-        <div className="btn-container ">
+
+        <Form />
+        {/* <div className="btn-container ">
           <button className="btn " onClick={increment}>
             increment
           </button>
@@ -43,7 +55,7 @@ const App = () => {
           <button onClick={reduceTen} className="btn">
             reduceByTen
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
