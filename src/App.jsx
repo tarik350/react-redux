@@ -3,22 +3,24 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
+import { actions } from "./store";
+
 const App = () => {
   const counter = useSelector((state) => state.counter);
   const dispatch = useDispatch();
   const increment = () => {
-    dispatch({ type: "increment" });
+    dispatch(actions.increment());
   };
   const decrement = () => {
-    dispatch({ type: "decrement" });
+    dispatch(actions.decrement());
   };
 
   const addByTen = () => {
-    dispatch({ type: "addTen" });
+    dispatch(actions.addBy(10));
   };
 
   const reduceTen = () => {
-    dispatch({ type: "reduceTen" });
+    dispatch(actions.reduceBy(10));
   };
   return (
     <div className="flex flex-col justify-center items-center  h-screen border-2  rounded-xl ">
