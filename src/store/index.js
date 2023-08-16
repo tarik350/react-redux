@@ -34,8 +34,24 @@ const nameSlice = createSlice({
 });
 
 export const actions = nameSlice.actions;
+
+const messageSlice = createSlice({
+  name: "message",
+  initialState: { message: null },
+  reducers: {
+    setMessage: (state, actions) => {
+      console.log(actions.payload.message);
+      state.message = actions.payload.message;
+    },
+  },
+});
+export const messageActions = messageSlice.actions;
+
 const store = configureStore({
-  reducer: nameSlice.reducer,
+  reducer: {
+    name: nameSlice.reducer,
+    message: messageSlice.reducer,
+  },
 });
 
 export default store;
